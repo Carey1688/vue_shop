@@ -10,8 +10,8 @@ export default {
     logout() {
       window.sessionStorage.clear()
       this.$router.push('/login')
-    },
-  },
+    }
+  }
 }
 </script>
 
