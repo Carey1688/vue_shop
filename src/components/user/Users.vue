@@ -230,6 +230,9 @@ export default {
 
     }
   },
+    created() {
+    this.getUserList()
+  },
   methods: {
     async getUserList() {
       const { data: res } = await this.$http.get('users', { params: this.queryInfo })
@@ -377,7 +380,6 @@ export default {
    async saveRoleInfo(){
       if(!this.selectRoleId){
          return this.$message.error('请选择要分配的角色');
-
       }
      const { data: res } = await this.$http.put(`users/${this.userInfo.id}/role`,
         {
@@ -396,15 +398,8 @@ export default {
     setRoleDialogClosed() {
       this.selectRoleId = ''
       this.userInfo = {}
-    },
-
-  // 生命周期 - 创建完成（可以访问当前this实例）
-  created() {
-
-   }
-
+    }
   }
-
 }
 </script>
 
